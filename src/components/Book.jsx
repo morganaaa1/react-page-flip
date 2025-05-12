@@ -1,54 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react';
 import HTMLFlipBook from "react-pageflip";
 
 function Book() {
-
-  const pokemonData = [
-    {
-      id: "006",
-      name: "Charizard",
-      types: ["Fire", "Flying"],
-      description: "Flies in search of strong opponents. Breathes extremely hot fire that melts anything, but never uses it on weaker foes."
-    },
-    {
-      id: "025",
-      name: "Pikachu",
-      types: ["Electric"],
-      description: "When Pikachu meet, they touch tails to exchange electricity as a greeting."
-    },
-    {
-      id: "125",
-      name: "Electabuzz",
-      types: ["Electric"],
-      description: "Often kept at power plants to regulate electricity. Competes with others to attract lightning during storms."
-    },
-    {
-      id: "185",
-      name: "Sudowoodo",
-      types: ["Rock"],
-      description: "Despite looking like a tree, its body is more like rock. Hates water and hides when it rains."
-    },
-    {
-      id: "448",
-      name: "Lucario",
-      types: ["Fighting", "Steel"],
-      description: "Can read thoughts and movements by sensing others' aura. No foe can hide from Lucario."
-    },
-    {
-      id: "658",
-      name: "Greninja",
-      types: ["Water", "Dark"],
-      description: "Creates throwing stars from compressed water that can slice through metal when thrown at high speed."
-    },
-    {
-      id: "491",
-      name: "Darkrai",
-      types: ["Dark"],
-      description: "A legendary Pokémon that appears on moonless nights, putting people to sleep and giving them nightmares."
-    }
-  ];
-
   return (
+    <>
+    {/* Background music */}
+    <audio audio autoPlay loop ref={(audio) => { if (audio) audio.volume = 0.3; }}>
+      <source src="/audio/Lana Del Rey - Young and Beautiful.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
     <HTMLFlipBook 
       width={370} 
       height={500}
@@ -57,42 +17,85 @@ function Book() {
       showCover={true}
       size='fixed'
     >
+      {/* Cover Page */}
       <div className="page" style={{ background: 'transparent' }}>
         <div className="page-content cover">
-          <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
-            alt="Pokémon Logo" 
-            className="pokemon-logo"
-          />
+          <h1 className="diary-title">Our Love Journey</h1>
+          <p className="diary-subtitle">A Story of Us</p>
         </div>
       </div>
 
-      {pokemonData.map((pokemon) => (
-        <div className="page" key={pokemon.id}>
-          <div className="page-content">
-            <div className="pokemon-container">
-              <img 
-                src={`https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${pokemon.id}.png`} 
-                alt={pokemon.name} 
-              />
-              <div className="pokemon-info">
-                <h2 className="pokemon-name">{pokemon.name}</h2>
-                <p className="pokemon-number">#{pokemon.id}</p>
-                <div>
-                  {pokemon.types.map((type) => (
-                    <span key={type} className={`pokemon-type type-${type.toLowerCase()}`}>
-                      {type}
-                    </span>
-                  ))}
-                </div>
-                <p className="pokemon-description">{pokemon.description}</p>
-              </div>
+      {/* Diary Page 1 */}
+      <div className="page">
+        <div className="page-content diary-page">
+          <p className="diary-entry">
+            It’s been five months since we started this journey together.<br />
+            I still remember when we first met on a dating app — who would've thought?<br /><br />
+
+            We laughed over the difference between a screwdriver and pliers,<br />
+            neither of us backing down, even over something so random.<br /><br />
+
+            The first time I heard your voice,<br />
+            it felt like a lullaby — calm, soft, like velvet in a storm.<br /><br />
+
+            On our first date, I froze when I saw you —<br />
+            the way you walked, the way you spoke,<br />
+            you held my hand after we got off the bike, and we watched a horror movie.<br />
+            You jumped and hugged me out of fear, but I secretly loved it.<br /><br />
+
+            I can still recall your scent —<br />
+            the fragrance of your hair, of your skin —<br />
+            addictive, like nothing I've known before.
+          </p>
+        </div>
+      </div>
+
+      {/* Diary Page 2 */}
+      <div className="page">
+        <div className="page-content diary-page">
+          <p className="diary-entry">
+            We played arcade games at the mall, and before the night ended,<br />
+            I confessed that I liked you — nervous, yes, but sincere.<br />
+            I once said I only wanted friendship, yet here we are.<br /><br />
+
+            Our second date was cozy: PlayStation, The Conjuring, singing together,<br />
+            even meeting my friends at a cafe. We had our first fight too.<br />
+            We cried it out in front of your house and hugged it away.<br /><br />
+
+            We've shared joys and tears, kisses and comfort,<br />
+            and I still remember our first spontaneous kiss —<br />
+            magical, unforgettable, mine forever.<br /><br />
+
+            We've visited zoos, watched movies, karaoke nights,<br />
+            and lazy days at home — every moment, enough for me.<br /><br />
+
+            I want to spend all my days with you.<br />
+            Even if storms come, I believe we can face them — together.
+          </p>
+          <div className="signature">~ Abil</div>
+        </div>
+      </div>
+
+      {/* Photo Pages */}
+      {[
+        { src: "images/img-1.jpg", caption: "Our first photo together — I still remember how nervous we were ❤️" },
+        { src: "images/img-2.jpg", caption: "The way you smile makes my day every time ✨" },
+        { src: "images/img-3.jpg", caption: "Just another memory of us laughing until it hurt 🤍" },
+        { src: "images/img-4.jpg", caption: "Karaoke night — our voices, off-key but full of love 🎤" },
+        { src: "images/img-5.jpg", caption: "I don't need fancy places, just you beside me 🧡" },
+      ].map((photo, index) => (
+        <div className="page" key={index}>
+          <div className="page-content photo-page">
+            <div className="polaroid">
+              <img src={photo.src} alt={`Memory ${index + 1}`} />
+              <small>{photo.caption}</small>
             </div>
           </div>
         </div>
       ))}
     </HTMLFlipBook>
+    </>
   );
 }
 
-export default Book
+export default Book;

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -34,13 +35,6 @@ html {
   align-items: center;
 }
 
-.pokemon-logo {
-  width: 80%;
-  max-width: 300px;
-  margin-bottom: 20px;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-}
-
 .page {
   background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
   border-radius: 5px;
@@ -64,101 +58,130 @@ html {
   font-weight: bold;
 }
 
-.pokemon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding: 0 5px;
-}
-
-.pokemon-container img {
-  width: 70%;
-  max-height: 200px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.pokemon-container img:hover {
-  transform: scale(1.05);
-}
-
-.pokemon-info {
-  width: 100%;
-}
-
-.pokemon-name {
-  font-size: clamp(1rem, 3vw, 1.8rem);
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 5px;
-}
-
-.pokemon-number {
-  font-size: clamp(0.7rem, 2vw, 1rem);
-  color: #7f8c8d;
-  margin-bottom: 10px;
-}
-
-.pokemon-type {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: clamp(0.6rem, 1.5vw, 0.9rem);
-  font-weight: 500;
-  color: white;
-  margin: 0 3px 5px 3px;
-}
-
-.type-electric {
-  background-color: #f1c40f;
-}
-
-.type-ground {
-  background-color: #e67e22;
-}
-
-.type-poison {
-  background-color: #9b59b6;
-}
-
-.type-fire {
-  background-color: #e74c3c;
-}
-
-.type-flying {
-  background-color: #3498db;
-}
-
-.type-water {
-  background-color: #2980b9;
-}
-
-.type-dark {
-  background-color: #34495e;
-}
-
-.type-fighting {
-  background-color: #d35400;
-}
-
-.type-steel {
-  background-color: #7f8c8d;
-}
-
-.type-rock {
-  background-color: #9a7b4f;
-}
-
-.pokemon-description {
-  font-size: 14px;
-  color: #34495e;
-  margin-top: 8px;
-  line-height: 1.4;
-}
-
 .demoPage {
   background: #fff;
   color: #000;
+}
+
+/* Cover Page */
+.cover {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.diary-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5em;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.diary-subtitle {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.2em;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* Diary Pages */
+.page-content.diary-page {
+  background: #fff5e6 !important;
+  padding: 30px;
+  text-align: left;
+  justify-content: flex-start;
+  overflow-y: auto; /* Tambahkan scroll bila tinggi berlebih */
+  max-height: 100%; /* Pastikan tidak keluar dari halaman */
+}
+
+.diary-entry {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 10.5px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  color: #2c3e50;
+  text-align: right;
+  margin-top: auto;
+  padding-right: 30px;
+}
+
+/* Halaman belakang */
+.page:not(.cover) {
+  background: linear-gradient(145deg, #fff5e6 0%, #ffe4cc 100%) !important;
+}
+
+/* Halaman Foto */
+/* .photo-page {
+  background: #fff5e6 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.photo-page img {
+  max-width: 90%;
+  max-height: 70%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.photo-page small {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
+  text-align: center;
+} */
+
+/* Halaman Foto dengan Gaya Polaroid */
+.photo-page {
+  background: #fffaf0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  flex-direction: column;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 25px 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  max-width: 250px;
+  transform: rotate(-2deg);
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.polaroid small {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-style: italic;
+  color: #333;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
